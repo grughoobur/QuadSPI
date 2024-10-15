@@ -58,6 +58,7 @@ end
 
 always @(negedge clk) begin // Sampling
 	if (maxCount >= 5) begin // Max count reached (All bits transferred)
+	maxCount <= 0;
 	transmit <= 0; // Disallow transmission
 	CS <= 1'b1; // Unselect slave
 	end
